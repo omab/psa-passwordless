@@ -13,6 +13,7 @@ How to run this application
     $ pip install -r requirements.txt
 
 2. Initialize the needed settings for sending email::
+
     $ cd pless
     $ cp app/local_settings.py.template app/local_settings.py
     $ vi app/local_settings.py
