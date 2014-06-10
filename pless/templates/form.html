@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="{% url "social:complete" backend="email" %}">{% csrf_token %}
+  <p>
+    <label for="email" >Email:</label>
+    <input id="email" name="email" type="email" value="" />
+  </p>
+  <button>Login / Signup</button>
+</form>
+{% endblock %}

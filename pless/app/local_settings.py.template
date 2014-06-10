@@ -1,0 +1,7 @@
+# Use GMail for testing purpose
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'foobar@gmail.com'
+EMAIL_HOST_PASSWORD = 'password goes here'
+EMAIL_PORT = 587
+EMAIL_FROM = 'foobar@gmail.com'
