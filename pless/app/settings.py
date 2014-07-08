@@ -62,6 +62,8 @@ AUTHENTICATION_BACKENDS = (
     # 'passwordless.backend.TokenAuth',
 )
 
+LOGIN_REDIRECT_URL = '/done/'
+
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
     'social.pipeline.social_auth.social_uid',
