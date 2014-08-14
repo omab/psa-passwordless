@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 # render a template and send a fancy HTML email instad.
 
 
-def send_validation(strategy, code):
+def send_validation(strategy, backend, code):
     url = reverse('token_login', args=(code.code,))
     url = strategy.request.build_absolute_uri(url)
     send_mail('Passwordless Login', 'Use this URL to login {0}'.format(url),

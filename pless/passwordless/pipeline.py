@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 # that this is a password-less auth attempt, that way other social
 # authentication will keep working.
 
-def user_by_email(strategy, details, *args, **kwargs):
-    if strategy.request_data().get('verification_code') and \
-       details.get('email'):
+def user_by_email(backend, details, *args, **kwargs):
+    request_data = backend.strategy.request_data()
+    if request_data.get('verification_code') and details.get('email'):
         try:
             user = User.objects.get(email=details['email'])
         except User.DoesNotExist:
