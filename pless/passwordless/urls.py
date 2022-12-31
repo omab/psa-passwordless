@@ -1,13 +1,14 @@
-from django.conf.urls import patterns, url
+from django.urls import path
+from passwordless import views
 
 
-urlpatterns = patterns('',
-    url(r'^$', 'passwordless.views.home', name='home'),
-    url(r'^done/$', 'passwordless.views.done', name='done'),
-    url(r'^login-form/$', 'passwordless.views.login_form', name='login_form'),
-    url(r'^validation-sent/$', 'passwordless.views.validation_sent',
+urlpatterns = [
+    path(r'', views.home, name='home'),
+    path(r'done/', views.done, name='done'),
+    path(r'login-form/', views.login_form, name='login_form'),
+    path(r'validation-sent/', views.validation_sent,
         name='validation_sent'),
-    url(r'^token-login/(?P<token>[^/]+)/$', 'passwordless.views.token_login',
+    path(r'token-login/<slug:token>/', views.token_login,
         name='token_login'),
-    url(r'^logout/$', 'passwordless.views.logout', name='logout')
-)
+    path(r'logout/', views.logout, name='logout')
+]

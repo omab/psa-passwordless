@@ -1,2 +1,2 @@
 django
-git+https://github.com/omab/python-social-auth.git@master
+social-auth-app-django
