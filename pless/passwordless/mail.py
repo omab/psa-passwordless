@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.mail import send_mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 # Send mail validation to user, the email should include a link to continue the
@@ -8,8 +8,13 @@ from django.core.urlresolvers import reverse
 # render a template and send a fancy HTML email instad.
 
 
-def send_validation(strategy, backend, code):
+def send_validation(strategy, backend, code, partial_token):
     url = reverse('token_login', args=(code.code,))
     url = strategy.request.build_absolute_uri(url)
-    send_mail('Passwordless Login', 'Use this URL to login {0}'.format(url),
-              settings.EMAIL_FROM, [code.email], fail_silently=False)
+    send_mail(
+        'Passwordless Login',
+        'Use this URL to login {0}'.format(url),
+        settings.EMAIL_FROM,
+        [code.email],
+        fail_silently=False,
+    )

@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.urls import include, path
 
 
-urlpatterns = patterns('',
-    url(r'', include('passwordless.urls')),
-    url(r'', include('social.apps.django_app.urls', namespace='social')),
-)
+urlpatterns = [
+    path(r'', include('passwordless.urls')),
+    path(r'', include('social_django.urls', namespace='social')),
+]
